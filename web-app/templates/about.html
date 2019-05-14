@@ -1,0 +1,27 @@
+{% extends 'layout.html'%}
+
+
+{% block body %}
+  <h1>About</h1>
+  <div class="container jumbotron" style="background-image:url({{ url_for('static', filename='images/img1.jpg') }}) ">
+    <p>This is a website designed for the sole pupose to learn and teach others the ways to save life.</p>
+    <br>
+    <p>I beleave that like all other sites that teaches how to code? or how to use technology?</p>
+    <p>,there should also be a site that teaches how to <b>Save yourselves.</b> </p>
+    <p><i>Heres something about this website</i></p>
+    <p>This web page is open for all be it be doctor or a newbie anyone can use with its simple and eay to understand user interface</p>
+    <p><b>Whats the next step:</b></p>
+    <ol>
+      <li><p>Click the Register button at home or on the navigation bar and register yourself in.</p></li>
+      <li><p>Now login in to your account.</p></li>
+      <li><p>Then you will be redirected to your Dashbord</p></li>
+      <li><p>Once There you can either upload your knowledge by pressing add article</p></li>
+      <li><p>Or you can see your quizes you taken part in</p></li>
+      <li><p>Click on the articles link: <a href="/artilcles">articles</a>, you will be take to a page with articles that has been posted by all the geniuses</p></li>
+      <li><p>Why dont you give it a study backed by pictures and video tutorials it would be very interseting to sudy them</p></li>
+
+
+    </ol>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <h1>Get Qualified<small> Select a test</small></h1>
+  <div class="container jumbotron" style="background-image:url({{url_for('static', filename='images/lifeline.jpg') }});
+                                          background-repeat:repeat;
+                                          background-position:center;">
+<style media="screen">
+  h2{
+    color: white;
+  }
+  p{
+    color: white;
+  }
+</style>
+    <h2>Note:</h2>
+    <p>Minimum marks for qualification are 70%</p>
+    <p>All questions are compulorry to attend</p>
+    <p>Remember you can take this test again and again </p>
+    <p>After taking the test you can be qualified as newbie, ammature, professional, and finally doctor</p>
+
+  </div>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  #myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+
+  #myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+  }
+
+  #myTable th, #myTable td {
+    text-align: left;
+    padding: 12px;
+  }
+
+  #myTable tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  #myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+  }
+  </style>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search.." title="Type in a name">
+
+  <table id="myTable">
+    <tr class="header">
+      <th style="width:60%;">Title</th>
+      <th style="width:40%;">Author</th>
+    </tr>
+    {% for quiz in quizes %}
+      <tr>
+        <td><a href="quiz/{{ quiz['id'] }}">{{ quiz.get('title') }}</a></td>
+        <td>{{ quiz.get('author') }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <script>
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+
+{% endblock %}
